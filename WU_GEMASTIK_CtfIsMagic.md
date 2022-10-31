@@ -1,6 +1,9 @@
-# WRITE UP
+# WRjouITE UP
 
-![memes](/images/memes.jpg)
+
+# write up
+
+![memes](./images/memes.jpg)
 
 ## ctfIsMagic
 
@@ -157,39 +160,39 @@ Gemastik2022{st45iUn_MLG_k07a_b4rU}
 # FORENSIC
 
 # Traffic Enjoyer
-![img](/images/f1a.png)
+![img](./images/f1a.png)
 
 ## Proof of Concept
 Untuk soal Traffic Enjoyer diberikan sebuah file pcap yang berisikan traffic data. Disini kami menggunakan Wireshark untuk melihat data yang ada.
-![img](/images/f1b.png)
+![img](./images/f1b.png)
 Di dalam nya terdapat banyak data yakni traffic TCP dan HTTP. Namun yang membuat kami tertarik di sini yaitu pada bagian HTTP, dimana terdapat banyak HTTP get .index dan hasil request nya html/text.
-![img](/images/f1c.png)
+![img](./images/f1c.png)
 Setelah itu di sini kami mengexport object list HTTP request yang ada. 
-![img](/images/f1d.png)
+![img](./images/f1d.png)
 Setelah kami melihat data yang ada di dalam masing masing index, disni kami menyadari bahwa file yang ada berupa data yang berbentuk ***base64***. Selain itu terdapat ***ivBO*** di dalam nya membuat kami yakin bahwa data tersebut merupakan image file.
-![img](/images/f1e.png)
+![img](./images/f1e.png)
 Setelah itu disni kami menggunakan tools online untuk mengubah data base64 yang ada menjadi image file menggunakan ***https://codebeautify.org/base64-to-image-converter***
-![img](/images/f1f.png)
+![img](./images/f1f.png)
 Setelah itu kami mendapatkan sebuah kata dari hasil convert tersebut. Kami melakukan hal yang sama untuk semua file index html yang ada ***%3findex=0 sampai %3findex=49***
 
 ## Flag
 Gemastik2022{balapan_f1rst_bl00d_is_real_f580c176}
 
 # Har
-![img](/images/fb1.png)
+![img](./images/fb1.png)
 ## Proof of Concept
 Untuk soal har ini disana kami setelah searching mengenai apa itu file berformat har, nah disini kami mendapatkan tool ***https://toolbox.googleapps.com/apps/har_analyzer/*** untuk menganalisa file ***har** yang diberikan.
-![img](/images/fb2.png)
+![img](./images/fb2.png)
 Dari analisa yang kami dapatkan terhadap data yang ada, di sana terdapat banyak traffic yang mengakses ke ***figma.com*** 
-![img](/images/fb3.png)
+![img](./images/fb3.png)
 Setelah kami coba untuk mengakses salah satu method get yaitu ***https://www.figma.com/file/N2D2B1mcWjiqgKZciiPSJ5/Untitled*** kami menemukan sebuah figma project file yang mana di tidak dapat diakses. 
-![img](/images/fb4.png)
+![img](./images/fb4.png)
 Nah setelah kami melihat melihat lagi terhadap proses yang ada dalam method request yang diberikan, ternyata di sana terdapat sebuah ***cookie***. Nah dari sana kami kepikiran untuk mencoba cookie tersebut untuk mengakses project figma yang ada.
-![img](/images/fb5.png)
+![img](./images/fb5.png)
 Nah berikut merupakan tampilan untuk melihat cookie yang ada menggunakan tools tersebut.
-![img](/images/fb6.png)
+![img](./images/fb6.png)
 Nah kemudian disini kami mencoba untuk menambahkan value pada cookie di browser
-![img](/images/fb7.png)
+![img](./images/fb7.png)
 
 ```
 # Netscape HTTP Cookie File
