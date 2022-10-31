@@ -22,8 +22,137 @@
 ![code-juggling-chall](./images/code-juggling-chall.png)
 
 ## Proof of Concept
+Masukan file kedalam ghidra untuk diproses, lalu temukan main  function **“nama function main dipanggil sebagai parameter pertama pada function entry”.**
+
+```jsx
+undefined4 FUN_00401140(int param_1,undefined8 *param_2)
+
+{
+  size_t sVar1;
+  uint local_20;
+  int local_1c;
+  
+  if (param_1 == 2) {
+    FUN_004014a0(param_2[1],0);
+    FUN_004014e0(param_2[1],1);
+    FUN_00401520(param_2[1],2);
+    FUN_00401560(param_2[1],3);
+    FUN_004015a0(param_2[1],4);
+    FUN_004015e0(param_2[1],5);
+    FUN_00401620(param_2[1],6);
+    FUN_00401660(param_2[1],7);
+    FUN_004016a0(param_2[1],8);
+    FUN_004016e0(param_2[1],9);
+    FUN_00401720(param_2[1],10);
+    FUN_00401760(param_2[1],0xb);
+    FUN_004017a0(param_2[1],0xc);
+    FUN_004017e0(param_2[1],0xd);
+    FUN_00401820(param_2[1],0xe);
+    FUN_00401860(param_2[1],0xf);
+    FUN_004018a0(param_2[1],0x10);
+    FUN_004018e0(param_2[1],0x11);
+    FUN_00401920(param_2[1],0x12);
+    FUN_00401960(param_2[1],0x13);
+    FUN_004019a0(param_2[1],0x14);
+    FUN_004019e0(param_2[1],0x15);
+    FUN_00401a20(param_2[1],0x16);
+    FUN_00401a60(param_2[1],0x17);
+    FUN_00401aa0(param_2[1],0x18);
+    FUN_00401ae0(param_2[1],0x19);
+    FUN_00401b20(param_2[1],0x1a);
+    FUN_00401b60(param_2[1],0x1b);
+    FUN_00401ba0(param_2[1],0x1c);
+    FUN_00401be0(param_2[1],0x1d);
+    FUN_00401c20(param_2[1],0x1e);
+    FUN_00401c60(param_2[1],0x1f);
+    FUN_00401ca0(param_2[1],0x20);
+    FUN_00401ce0(param_2[1],0x21);
+    FUN_00401d20(param_2[1],0x22);
+    local_20 = 0;
+    for (local_1c = 0; local_1c < 35; local_1c = local_1c + 1) {
+      local_20 = *(uint *)(&DAT_00404050 + (long)local_1c * 4) | local_20;
+    }
+    sVar1 = strlen((char *)param_2[1]);
+    if (sVar1 != 0x23) {
+      local_20 = 1;
+    }
+    if (local_20 == 0) {
+      printf("Congratulations, the flag is: %s\n",param_2[1]);
+    }
+    else {
+      printf("Sorry, wrong flag\n");
+    }
+  }
+  else {
+    printf("Usage: %s flag\n",*param_2);
+  }
+  return 0;
+}
+```
+
+Berfokus pada banyaknya fungsi 
+
+```jsx
+FUN_004014a0(param_2[1],0);
+    FUN_004014e0(param_2[1],1);
+    FUN_00401520(param_2[1],2);
+    FUN_00401560(param_2[1],3);
+    FUN_004015a0(param_2[1],4);
+    FUN_004015e0(param_2[1],5);
+    FUN_00401620(param_2[1],6);
+    FUN_00401660(param_2[1],7);
+    FUN_004016a0(param_2[1],8);
+    FUN_004016e0(param_2[1],9);
+    FUN_00401720(param_2[1],10);
+    FUN_00401760(param_2[1],0xb);
+    FUN_004017a0(param_2[1],0xc);
+    FUN_004017e0(param_2[1],0xd);
+    FUN_00401820(param_2[1],0xe);
+    FUN_00401860(param_2[1],0xf);
+    FUN_004018a0(param_2[1],0x10);
+    FUN_004018e0(param_2[1],0x11);
+    FUN_00401920(param_2[1],0x12);
+    FUN_00401960(param_2[1],0x13);
+    FUN_004019a0(param_2[1],0x14);
+    FUN_004019e0(param_2[1],0x15);
+    FUN_00401a20(param_2[1],0x16);
+    FUN_00401a60(param_2[1],0x17);
+    FUN_00401aa0(param_2[1],0x18);
+    FUN_00401ae0(param_2[1],0x19);
+    FUN_00401b20(param_2[1],0x1a);
+    FUN_00401b60(param_2[1],0x1b);
+    FUN_00401ba0(param_2[1],0x1c);
+    FUN_00401be0(param_2[1],0x1d);
+    FUN_00401c20(param_2[1],0x1e);
+    FUN_00401c60(param_2[1],0x1f);
+    FUN_00401ca0(param_2[1],0x20);
+    FUN_00401ce0(param_2[1],0x21);
+    FUN_00401d20(param_2[1],0x22);
+```
+
+Apabila setiap fungsi dibuka maka terdapat character yang dijadikan pembanding disana.
+
+```jsx
+void FUN_004014a0(long param_1,int param_2)
+
+{
+  *(uint *)(&DAT_00404050 + (long)param_2 * 4) = (uint)(*(char *)(param_1 + param_2) != 'G');
+  return;
+}
+```
+
+```jsx
+x != 'G'
+```
+
+hal tersebut terdapat disemua fungsi sehingga charater tersebut membentuk sebuah flag.
+
+```jsx
+Gemastik2022{st45iUn_MLG_k07a_b4rU}
+```
 
 ## Flag
+Gemastik2022{st45iUn_MLG_k07a_b4rU}
 
 # FORENSIC
 
