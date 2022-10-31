@@ -1,30 +1,34 @@
-# WRjouITE UP
 
-
-# write up
+# WU_GEMASTIK_CtfIsMagic
 
 ![memes](./images/memes.jpg)
 
-## ctfIsMagic
-
-`katana`
-`urxry_zhqn`
-`!root`
+ <div>
+ <li>`katana`
+ <li>`urxry_zhqn` 
+ <li>`!root`
+ </div>
+ 
+<div style="page-break-after: always;"></div>
 
 # Table of Content
-1. [Reverse Engineering](#reverse-engineering)
-1.1 [Code Jugling](#code-jugling) 
-2. [Forensic](#forensic)
-2.1 [Traffic Enjoyer](#traffic-enjoyer)
-2.2 [Har](#har)
+
+- [Reverse Engineering](#reverse-engineering)
+    - [Code Jugling](#code-jugling)
+- [Forensic](#forensic)
+    - [Traffic Enjoyer](#traffic-enjoyer)
+    - [Har](#har)
+
+<div style="page-break-after: always;"></div>
 
 # Reverse Engineering
 
-# Code Jugling
+## Code Jugling
 
 ![code-juggling-chall](./images/code-juggling-chall.png)
 
 ## Proof of Concept
+
 Masukan file kedalam ghidra untuk diproses, lalu temukan main  function **“nama function main dipanggil sebagai parameter pertama pada function entry”.**
 
 ```jsx
@@ -155,43 +159,73 @@ Gemastik2022{st45iUn_MLG_k07a_b4rU}
 ```
 
 ## Flag
+
 Gemastik2022{st45iUn_MLG_k07a_b4rU}
+
+<div style="page-break-after: always;"></div>
 
 # FORENSIC
 
-# Traffic Enjoyer
+## Traffic Enjoyer
+
 ![img](./images/f1a.png)
 
 ## Proof of Concept
+
 Untuk soal Traffic Enjoyer diberikan sebuah file pcap yang berisikan traffic data. Disini kami menggunakan Wireshark untuk melihat data yang ada.
+
 ![img](./images/f1b.png)
+
 Di dalam nya terdapat banyak data yakni traffic TCP dan HTTP. Namun yang membuat kami tertarik di sini yaitu pada bagian HTTP, dimana terdapat banyak HTTP get .index dan hasil request nya html/text.
+
 ![img](./images/f1c.png)
+
 Setelah itu di sini kami mengexport object list HTTP request yang ada. 
+
 ![img](./images/f1d.png)
+
 Setelah kami melihat data yang ada di dalam masing masing index, disni kami menyadari bahwa file yang ada berupa data yang berbentuk ***base64***. Selain itu terdapat ***ivBO*** di dalam nya membuat kami yakin bahwa data tersebut merupakan image file.
+
 ![img](./images/f1e.png)
+
 Setelah itu disni kami menggunakan tools online untuk mengubah data base64 yang ada menjadi image file menggunakan ***https://codebeautify.org/base64-to-image-converter***
+
 ![img](./images/f1f.png)
+
 Setelah itu kami mendapatkan sebuah kata dari hasil convert tersebut. Kami melakukan hal yang sama untuk semua file index html yang ada ***%3findex=0 sampai %3findex=49***
 
 ## Flag
+
 Gemastik2022{balapan_f1rst_bl00d_is_real_f580c176}
 
 # Har
+
 ![img](./images/fb1.png)
+
 ## Proof of Concept
+
 Untuk soal har ini disana kami setelah searching mengenai apa itu file berformat har, nah disini kami mendapatkan tool ***https://toolbox.googleapps.com/apps/har_analyzer/*** untuk menganalisa file ***har** yang diberikan.
+
 ![img](./images/fb2.png)
+
 Dari analisa yang kami dapatkan terhadap data yang ada, di sana terdapat banyak traffic yang mengakses ke ***figma.com*** 
+
 ![img](./images/fb3.png)
+
 Setelah kami coba untuk mengakses salah satu method get yaitu ***https://www.figma.com/file/N2D2B1mcWjiqgKZciiPSJ5/Untitled*** kami menemukan sebuah figma project file yang mana di tidak dapat diakses. 
+
 ![img](./images/fb4.png)
+
 Nah setelah kami melihat melihat lagi terhadap proses yang ada dalam method request yang diberikan, ternyata di sana terdapat sebuah ***cookie***. Nah dari sana kami kepikiran untuk mencoba cookie tersebut untuk mengakses project figma yang ada.
+
 ![img](./images/fb5.png)
+
 Nah berikut merupakan tampilan untuk melihat cookie yang ada menggunakan tools tersebut.
+
 ![img](./images/fb6.png)
+
 Nah kemudian disini kami mencoba untuk menambahkan value pada cookie di browser
+
 ![img](./images/fb7.png)
 
 ```
@@ -226,9 +260,11 @@ www.figma.com	FALSE	/	TRUE	1667749077	AWSALBTGCORS	7Dug0ex6PhUo/08oWeWWG1GEoOkwY
 www.figma.com	FALSE	/	FALSE	1667749077	AWSALB	qbNROovHP9bueKclvFCDZ5LK+OanW7ccytXKVGlG67gHZOlkY4WZAj0H7fJWoI2wUmaO0GSQgFOjTNkgySzBnUgHX6KEFbxrkbq0WFfTn9dUBH8YXKVpNn0OBx7e
 www.figma.com	FALSE	/	TRUE	1667749077	AWSALBCORS	qbNROovHP9bueKclvFCDZ5LK+OanW7ccytXKVGlG67gHZOlkY4WZAj0H7fJWoI2wUmaO0GSQgFOjTNkgySzBnUgHX6KEFbxrkbq0WFfTn9dUBH8YXKVpNn0OBx7e
 ```
+
 Setelah kami coba untuk memasukkan cookie yanga ada seperti value cookie tersebut kami pun akhirnya bisa mengakses halaman ***https://www.figma.com/file/N2D2B1mcWjiqgKZciiPSJ5/Untitled*** dan mendapatkan flagnya.
 
 ## Flag
+
 Gemastik2022{kinda_wish_this_werent_text}
 
 

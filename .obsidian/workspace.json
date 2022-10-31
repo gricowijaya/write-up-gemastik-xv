@@ -1,0 +1,144 @@
+{
+  "main": {
+    "id": "c245b01d8a305188",
+    "type": "split",
+    "children": [
+      {
+        "id": "60b05f015c3e1829",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "881800dbcb1c8db8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "WU_GEMASTIK_CtfIsMagic.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "600b22a3719237c8",
+    "type": "split",
+    "children": [
+      {
+        "id": "986f448ac3bd2fea",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dbc8cd0c7ef37562",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2dcae3c122be55bc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b6dae0c318e58f3c",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c365053c85c297b9",
+    "type": "split",
+    "children": [
+      {
+        "id": "1f6ee464f4c498b4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1cdc4785c4265b37",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "WU_GEMASTIK_CtfIsMagic.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "72a593f55498433f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "WU_GEMASTIK_CtfIsMagic.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "fb4cf88be0f6b322",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "c4fef0f90e30d884",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "WU_GEMASTIK_CtfIsMagic.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "881800dbcb1c8db8",
+  "lastOpenFiles": [
+    "WU_GEMASTIK_CtfIsMagic.md",
+    "WU_GEMASTIK_CtfIsMagic.pdf"
+  ]
+}
